@@ -10,8 +10,6 @@ const sizes = {
   height: window.innerHeight
 }
 
-
-
 // Scene setup
 const scene = new THREE.Scene();
 
@@ -58,15 +56,12 @@ const material = new THREE.MeshStandardMaterial({
   color: 'red'
 });
 
-
-
 //Mesh
 const planeMesh = new THREE.Mesh(plane, material);
 planeMesh.rotation.x = 181;
 scene.add(planeMesh);
 
 gui.add(planeMesh.rotation, 'x').min(0).max(10).step(0.01).name('rotationX');
-
 
 // Animation loop
 function animate() {
