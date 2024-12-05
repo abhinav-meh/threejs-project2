@@ -1,16 +1,31 @@
 import * as THREE from 'three';
-import * as dat from 'dat.gui';
+// import * as dat from 'dat.gui';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 // import { color } from 'three/webgpu';
 
-const gui = new dat.GUI();
+//gui
+// const gui = new dat.GUI();
+
+// Canvas
+const canvas = document.querySelector('canvas.webgl')
 
 //textures loader
-const loader = new THREE.TextureLoader();
-const height = loader.load('./static/height.jpg');
-const texture =  loader.load('./static/texture.jpg');
-const alpha = loader.load('./static/alpha.png');
+const textureLoader = new THREE.TextureLoader();
+const height = textureLoader.load('./static/height.jpg');
+const texture =  textureLoader.load('./static/texture.jpg');
+const alpha = textureLoader.load('./static/alpha.png');
 
+const loader = new GLTFLoader();
 
+loader.load( './static/object.gltf', function ( gltf ) {
+
+	scene.add( gltf.scene );
+
+}, undefined, function ( error ) {
+
+	console.error( error );
+
+} );
 
 //Sizes
 const sizes = {
@@ -27,12 +42,10 @@ camera.position.z = 7.7;
 camera.position.y = 2.4;
 camera.position.x = 0;
 
-gui.add(camera.position, 'z');
-gui.add(camera.position, 'y');
-gui.add(camera.position, 'x');
 
-//rernderer
+//renderer
 const renderer = new THREE.WebGLRenderer({
+    canvas:  canvas,
     alpha: true,
 });
 renderer.setSize(sizes.width, sizes.height);
@@ -46,30 +59,21 @@ window.addEventListener('resize', () => {
 });
 
 //Lights
-const pointLight = new THREE.PointLight('#00b3ff', 110);
+const pointLight = new THREE.PointLight('#00b3ff', 1200);
 pointLight.position.x = 1.9;
 pointLight.position.y = 3.1;
 pointLight.position.z = 0.82;
 scene.add(pointLight);
 
-gui.add(pointLight.position, 'x')
-gui.add(pointLight.position, 'y')
-gui.add(pointLight.position, 'z')
-gui.add(pointLight, 'intensity')
-const col = {color: '#00ff00'}
-
-gui.addColor(col, 'color').onChange(() => {
-    pointLight.color.set(col.color);
-})
 
 // Objects
-const plane = new THREE.PlaneGeometry(14, 14, 64, 64);
+const plane = new THREE.PlaneGeometry(24, 24, 256, 256);
 
 //Materials
 const material = new THREE.MeshStandardMaterial({
-    wireframe: true,
-  color: '#00b3ff',
-//   map: texture,
+  wireframe: true,
+  color: '#000000',
+  map: texture,
   displacementMap: height,
   displacementScale: 1.2,
   alphaMap: alpha,
@@ -80,30 +84,47 @@ const material = new THREE.MeshStandardMaterial({
 
 //Mesh
 const planeMesh = new THREE.Mesh(plane, material);
-planeMesh.rotation.x = 4.9;
+planeMesh.rotation.x = 5.0;
 scene.add(planeMesh);
 
-gui.add(planeMesh.rotation, 'x')
+
+
+// Scroll event listener
+window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    planeMesh.position.y = -scrollPosition * 0.01; // Adjust the factor to control the scroll speed
+  });
 
 //mouse
-document.addEventListener('mousemove', animateTerrain);
-let mouseY = 0;
+// let startDisplacement = false;
 
-function animateTerrain(event) {
-  mouseY = event.clientY;
-}
+// function handleScroll() {
+//   const scrollPosition = window.scrollY;
+//   const viewportHeight = window.innerHeight;
 
+//   if (scrollPosition >= viewportHeight) {
+//     startDisplacement = true;
+//     window.removeEventListener('scroll', handleScroll); // Remove the event listener after the first scroll
+//   }
+// }
+
+// window.addEventListener('scroll', handleScroll);
+
+// function animateTerrain(event) {
+//   mouseY = event.clientY;
+// }
 
 // Animation loop
 const clock = new THREE.Clock();
+const maxDisplacementScale = 1.4;
 
 function animate() {
   requestAnimationFrame(animate);
 
   const elapsedTime = clock.getElapsedTime();
-//   planeMesh.rotation.z = 0.5 * elapsedTime;
+  planeMesh.rotation.z = 0.05 * elapsedTime;
 
-planeMesh.material.displacementScale = 0.5 + mouseY * 0.0008;
+  planeMesh.material.displacementScale = Math.min(0.5 + elapsedTime * 0.08, maxDisplacementScale);
 
   renderer.render(scene, camera);
 }
