@@ -1,9 +1,11 @@
 @font-face {
   font-family: 'Geist-Mono';
-  src: url('./fonts/custom-font.woff2') format('woff2');
+  src: url('./fonts/Geist-Mono.woff2') format('woff2'),
+       url('./fonts/Geist-Mono.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
+
 *
 {
   margin: 0;
@@ -15,30 +17,63 @@ body
 {
   margin: 0;
   overflow-x: hidden; /* Prevent horizontal scrolling */
-  min-height: 200vh;
+  min-height: 100vh;
   background: rgb(27,27,31);
   font-family: 'Geist-Mono', monospace;
 }
 
-.hero-container {
-  position: relative;
-  text-align: center;
-  margin-top: 150px;
-  z-index: 1000; /* Adjust this value to position the hero container */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Geist-mono', monospace; 
+  color: #fff/* Custom font for headings */
 }
 
-#overlay-image {
-  width: 800px; /* Scale the image down */
-  height: auto; /* Maintain aspect ratio */
+section
+{
+  padding: 200px 0;
+}
+
+.hero-section
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Occupy the full viewport height */
+  text-align: center;
+  z-index: 1000;
+}
+
+.hero-container
+{
+  position: relative;
+  z-index: 1000;
+}
+
+.img-container
+{
+  position: relative;
+  z-index: 1000;
+}
+
+#hero-img
+{
+  width: 800px;
+  height: auto;
+}
+
+.hero-icon{
+  width: 200px;
+  height: auto;
+  margin-top: 20px; /* Adjust this value to position below the hero image */
 }
 
 .hero-text {
   font-family: 'Geist-Mono', monospace;
-  font-size: 36px; /* Adjust font size as needed */
+  font-size: 24px; /* Adjust font size as needed */
   color: white; /* Adjust text color as needed */
   text-align: center;
+  justify-content: center;
   z-index: 10;
-  margin-top: 20px; /* Adjust this value to position below the hero image */
+  margin-top: 20px; /* Adjust this value to position below the hero icon */
 }
 
 .hero-button {
@@ -59,13 +94,253 @@ body
   color: black;
 }
 
+.content-section {
+  padding: 50px 20px;
+  background: rgba(255, 255, 255, 0);
+  color: #333;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  z-index: 1000;
+}
+
+.text-content {
+  flex: 1;
+  padding: 20px;
+  max-width: 1400px;
+  z-index: 1000;
+  text-align: center;
+}
+
+.text-content h2 {
+  font-size: 48px;
+  color: #fff;
+  z-index: 1000;
+  font-family: 'Geist-Mono', monospace;
+}
+
+.text-content p {
+  line-height: 1.8;
+  max-width: 1400px;
+  color: #fff;
+  padding-top: 24px;
+  z-index: 1000;
+}
+
+.video-content {
+  flex: 1;
+  padding: 20px;
+  max-width: 1400px;
+  z-index: 1000;
+  background: #333; /* Background color for the video container */
+  border-radius: 15px; /* Rounded corners for the video container */
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Border color for the video container */
+  overflow: hidden; /* Ensure the video fits within the container */
+}
+
+.video-content video {
+  max-width: 1400px;
+  width: 100%;
+  height: auto;
+  z-index: 1000;
+}
+
+.team-section {
+  color: white;
+  padding: 4rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 1000;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  font-family: 'Geist-Mono', monospace;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+}
+
+.team-member {
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  padding-bottom: 0.5rem;
+  height: 100%;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  text-align: left;
+}
+
+.member-name {
+  font-family: 'Geist-Mono', monospace;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+/* .team-member:hover .underline {
+  width: 100%;
+} */
+
+/* .team-member.active .underline {
+  width: 100%;
+} */
+
+.member-card {
+  background-color: rgba(30, 30, 30, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  position: sticky;
+  top: 2rem;
+}
+
+.card-content {
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.card-name {
+  font-family: 'Geist-Mono', monospace;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.social-link {
+  color: white;
+  transition: opacity 0.3s ease;
+}
+
+.social-link:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  h2 {
+    font-size: 3rem;
+  }
+  
+  .member-card {
+    position: relative;
+    top: 0;
+  }
+}
+
+.carousel-section {
+  padding: 50px 20px;
+  color: #fff;
+}
+
+.carousel-section .container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.carousel-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 20px;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory; /* Optional: Add snap scrolling */
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 1400px; /* Adjust the width as needed */
+  height: auto; /* Adjust the height as needed */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start; /* Optional: Add snap scrolling */
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
 .logo img {
   height: 40px;
   width: auto;
 }
 
-.webgl
-{
+.webgl {
   position: fixed;
   top: 0;
   left: 0;
@@ -77,14 +352,12 @@ nav
 {
   position: fixed;
   top: 0;
-  width: 95%;
+  width: 100%;
   background: rgba(255, 255, 255, 0); /* Semi-transparent background */
-  backdrop-filter: blur(10px); /* Optional: Add blur effect */
+  backdrop-filter: blur(5px); /* Apply a blur effect */
   padding-top: 30px;
   padding-bottom: 30px;
-  padding-left: 40px;
-  padding-right: 40px;
-  z-index: 1000; /* Ensure the navbar is on top */
+  z-index: 1500; /* Ensure the navbar is on top */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,33 +367,4 @@ nav
 .navbar-container {
   max-width: 100%;
   overflow: hidden;
-}
-
-
-nav a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  margin: 0 10px;
-  padding: 10px 15px;
-  transition: background-color 0.3s, color 0.3s;
-  font-family: 'Geist-Mono', monospace;
-}
-
-
-nav button {
-  background-color: rgba(255, 255, 255, 0); /* Button background color */
-  color: white; /* Button text color */
-  border: 2px solid white;
-  padding: 10px 20px;
-  border-radius: 100px; /* Rounded corners */
-  cursor: pointer;
-  font-weight: bold;
-  font-family: 'Geist-Mono', monospace;
-  transition: background-color 0.3s;
-}
-
-nav button:hover {
-  background-color: #ffff; 
-  color: black;
 }

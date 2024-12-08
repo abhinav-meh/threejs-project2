@@ -12,11 +12,86 @@
       <img src="/static/logo.png" alt="Logo">
     </div>
   </nav>
-  <div class="hero-container">
-    <img id="overlay-image" src="./static/img.png" alt="Hero Image">
-    <p class="hero-text">The Journey of Water</p>
-    <button class="hero-button" onclick="window.location.href='#'">Learn More</button>
-  </div>
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="img-container">
+        <img id="hero-img" src="./static/img.png" alt="Hero Image">
+      </div>
+      <img class="hero-icon" src="./static/icon.png" alt="Hero Icon">
+    </div>
+  </section>
+  <section class="content-section">
+    <div class="content-container">
+      <div class="text-content">
+        <h2>About the Journey</h2>
+        <p>Dive into an immersive journey through the four states of water. Experience liquid serenity, icy stillness, vaporous wonder, and plasma’s electric energy—brought to life through art, light, and motion.</p>
+      </div>
+      <div class="video-content">
+        <video controls>
+          <source src="./static/video.webm" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+  <section class="team-section">
+    <div class="container">
+      <h2>Meet The Team</h2>
+      <div class="team-grid">
+        <div class="team-list">
+          <div class="team-member" data-member="member1">
+            <span class="member-name">Abhinav Mehrotra</span>
+            <div class="underline"></div>
+          </div>
+          <div class="team-member" data-member="member2">
+            <span class="member-name">Abe Homer</span>
+            <div class="underline"></div>
+          </div>
+          <div class="team-member" data-member="member3">
+            <span class="member-name">Alex LaFontaine</span>
+            <div class="underline"></div>
+          </div>
+          <div class="team-member" data-member="member4">
+            <span class="member-name">Cambria Klinger</span>
+            <div class="underline"></div>
+          </div>
+          <div class="team-member" data-member="member5">
+            <span class="member-name">Shalimar Alvarado Cruz</span>
+            <div class="underline"></div>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="card-content">
+            <img src="/placeholder.svg" alt="Team member" class="member-image">
+            <div class="member-info">
+              <h3 class="card-name">Abhinav Mehrotra</h3>
+              <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="instagram-icon">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="carousel-section">
+    <div class="container">
+      <h2>Snapshots</h2>
+      <div class="carousel">
+        <div class="carousel-item"><img src="path/to/image1.jpg" alt="Snapshot 1"></div>
+        <div class="carousel-item"><img src="path/to/image2.jpg" alt="Snapshot 2"></div>
+        <div class="carousel-item"><img src="path/to/image3.jpg" alt="Snapshot 3"></div>
+        <div class="carousel-item"><img src="path/to/image4.jpg" alt="Snapshot 4"></div>
+        <div class="carousel-item"><img src="path/to/image5.jpg" alt="Snapshot 5"></div>
+        <!-- Add more carousel items as needed -->
+      </div>
+    </div>
+  </section>
+
   <canvas class="webgl"></canvas>
   <script type="module" src="./src/index.js"></script>
 </body>
