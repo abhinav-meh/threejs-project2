@@ -102,6 +102,22 @@ window.addEventListener('mousemove', (event) => {
   mouse.y = -(event.clientY / sizes.height) * 2 + 1;
 });
 
+// Card-image manager
+const teamMembers = document.querySelectorAll('.team-member');
+const memberCardImage = document.querySelector('.member-card .member-image');
+const memberCardName = document.querySelector('.member-card .card-name');
+
+teamMembers.forEach(member => {
+  member.addEventListener('click', () => {
+    const memberName = member.getAttribute('data-name');
+    const memberImage = member.getAttribute('data-image');
+
+    memberCardImage.src = memberImage;
+    memberCardImage.alt = memberName;
+    memberCardName.textContent = memberName;
+  });
+});
+
 // Raycaster
 const raycaster = new THREE.Raycaster();
 
@@ -113,65 +129,63 @@ window.addEventListener('scroll', () => {
 });
 
 function showDetails(name) {
-    const selectedNameElement = document.getElementById("selected-name");
-    selectedNameElement.textContent = name;
-  }
+  const selectedNameElement = document.getElementById("selected-name");
+  selectedNameElement.textContent = name;
+}
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const teamMembers = document.querySelectorAll('.team-member');
-    const memberCard = document.querySelector('.member-card');
-    const cardName = document.querySelector('.card-name');
-    const memberImage = document.querySelector('.member-image');
-  
-    // Team member data
-    const memberData = {
-      member1: {
-        name: 'Abhinav Mehrotra',
-        image: '/placeholder.svg?height=500&width=500'
-      },
-      member2: {
-        name: 'Abe Homer',
-        image: '/placeholder.svg?height=500&width=500'
-      },
-      member3: {
-        name: 'Alex LaFontaine',
-        image: '/placeholder.svg?height=500&width=500'
-      },
-      member4: {
-        name: 'Cambria Klinger',
-        image: '/placeholder.svg?height=500&width=500'
-      },
-      member5: {
-        name: 'Shalimar Alvarado Cruz',
-        image: '/placeholder.svg?height=500&width=500'
-      }
-    };
-  
-    // Set initial active member
-    teamMembers[0].classList.add('active');
-  
-    teamMembers.forEach(member => {
-      member.addEventListener('click', () => {
-        // Remove active class from all members
-        teamMembers.forEach(m => m.classList.remove('active'));
-        
-        // Add active class to clicked member
-        member.classList.add('active');
-        
-        // Update card content
-        const memberId = member.dataset.member;
-        const data = memberData[memberId];
-        
-        // Animate card update
-        memberCard.style.opacity = '0';
-        setTimeout(() => {
-          cardName.textContent = data.name;
-          memberImage.src = data.image;
-          memberCard.style.opacity = '1';
-        }, 300);
-      });
+document.addEventListener('DOMContentLoaded', () => {
+  const teamMembers = document.querySelectorAll('.team-member');
+  const memberCard = document.querySelector('.member-card');
+  const cardName = document.querySelector('.card-name');
+  const memberImage = document.querySelector('.member-image');
+
+  // Team member data
+  const memberData = {
+    member1: {
+      name: 'Abhinav Mehrotra',
+      image: 'static/images/abhinav.JPG'
+    },
+    member2: {
+      name: 'Abe Homer',
+      image: 'static/images/abe.jpeg'
+    },
+    member3: {
+      name: 'Alex LaFontaine',
+      image: 'static/images/alex.jpg'
+    },
+    member4: {
+      name: 'Cambria Klinger',
+      image: '/placeholder.svg?height=500&width=500'
+    },
+    member5: {
+      name: 'Shalimar Alvarado Cruz',
+      image: '/placeholder.svg?height=500&width=500'
+    }
+  };
+
+  // Set initial active member
+  teamMembers[0].classList.add('active');
+  const initialMember = teamMembers[0].getAttribute('data-member');
+  cardName.textContent = memberData[initialMember].name;
+  memberImage.src = memberData[initialMember].image;
+  memberImage.alt = memberData[initialMember].name;
+
+  teamMembers.forEach(member => {
+    member.addEventListener('click', () => {
+      // Remove active class from all members
+      teamMembers.forEach(m => m.classList.remove('active'));
+      
+      // Add active class to clicked member
+      member.classList.add('active');
+
+      // Update member card with clicked member's data
+      const memberId = member.getAttribute('data-member');
+      cardName.textContent = memberData[memberId].name;
+      memberImage.src = memberData[memberId].image;
+      memberImage.alt = memberData[memberId].name;
     });
   });
+});
 // Animation loop
 const clock = new THREE.Clock();
 function animate() {

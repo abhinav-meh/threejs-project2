@@ -20,16 +20,13 @@ body
   min-height: 100vh;
   background: rgb(27,27,31);
   font-family: 'Geist-Mono', monospace;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Geist-mono', monospace; 
-  color: #fff/* Custom font for headings */
+  scroll-snap-type: y mandatory;
 }
 
 section
 {
   padding: 200px 0;
+  scroll-snap-align: start;
 }
 
 .hero-section
@@ -95,7 +92,7 @@ section
 }
 
 .content-section {
-  padding: 50px 20px;
+  padding: 20px 20px;
   background: rgba(255, 255, 255, 0);
   color: #333;
 }
@@ -112,7 +109,7 @@ section
 
 .text-content {
   flex: 1;
-  padding: 20px;
+  padding: 5px;
   max-width: 1400px;
   z-index: 1000;
   text-align: center;
@@ -129,7 +126,7 @@ section
   line-height: 1.8;
   max-width: 1400px;
   color: #fff;
-  padding-top: 24px;
+  padding-bottom: 2rem;
   z-index: 1000;
 }
 
@@ -171,7 +168,7 @@ section
 h2 {
   font-size: 48px;
   font-weight: 800;
-  margin-bottom: 3rem;
+  margin-bottom:1rem;
   font-family: 'Geist-Mono', monospace;
 }
 
@@ -256,20 +253,6 @@ h2 {
   font-size: 1.25rem;
 }
 
-@media (max-width: 768px) {
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  h2 {
-    font-size: 48px;
-  }
-  
-  .member-card {
-    position: relative;
-    top: 0;
-  }
-}
 
 .carousel-section {
   padding: 50px 20px;
@@ -297,27 +280,28 @@ h2 {
 
 .carousel-item {
   flex: 0 0 auto;
-  width: 1400px; /* Adjust the width as needed */
+  padding: 20px;
+  width: 1350px; /* Adjust the width as needed */
   height: auto; /* Adjust the height as needed */
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  background: #333;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  scroll-snap-align: start; /* Optional: Add snap scrolling */
+  scroll-snap-align: center; /* Optional: Add snap scrolling */
 }
 
 .carousel-item img {
+  max-width: 1200px;
+  max-height: 700px;
   width: 100%;
   height: auto;
   border-radius: 10px;
 }
 
-.logo img {
-  height: 40px;
-  width: auto;
-}
 .logo img {
   height: 40px;
   width: auto;
@@ -329,6 +313,25 @@ h2 {
   left: 0;
   outline: none;
   z-index: 0;
+}
+
+.footer {
+  background-color: rgba(0,0,0, 1.0); /* Solid background color */
+  padding: 100px 0;
+  text-align: center;
+  z-index: 1100;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  z-index: 1100;
+}
+
+.footer-logo {
+  height: 40px;
+  width: auto;
+  z-index:  1100;
 }
 
 nav 
