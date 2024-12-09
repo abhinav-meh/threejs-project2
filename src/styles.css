@@ -169,7 +169,7 @@ section
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: 48px;
   font-weight: 800;
   margin-bottom: 3rem;
   font-family: 'Geist-Mono', monospace;
@@ -217,14 +217,6 @@ h2 {
   transition: width 0.3s ease;
 }
 
-/* .team-member:hover .underline {
-  width: 100%;
-} */
-
-/* .team-member.active .underline {
-  width: 100%;
-} */
-
 .member-card {
   background-color: rgba(30, 30, 30, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -264,22 +256,13 @@ h2 {
   font-size: 1.25rem;
 }
 
-.social-link {
-  color: white;
-  transition: opacity 0.3s ease;
-}
-
-.social-link:hover {
-  opacity: 0.8;
-}
-
 @media (max-width: 768px) {
   .team-grid {
     grid-template-columns: 1fr;
   }
   
   h2 {
-    font-size: 3rem;
+    font-size: 48px;
   }
   
   .member-card {
@@ -299,7 +282,7 @@ h2 {
 }
 
 .carousel-section h2 {
-  font-size: 2.5rem;
+  font-size: 48px;
   margin-bottom: 20px;
   text-align: center;
 }
