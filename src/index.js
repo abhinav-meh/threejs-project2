@@ -42,9 +42,9 @@ scene.add(pointLight);
 
 // Textures
 const textureLoader = new THREE.TextureLoader();
-const height = textureLoader.load('./static/height.jpg');
-const texture = textureLoader.load('./static/texture.jpg');
-const alpha = textureLoader.load('./static/alpha.png');
+const height = textureLoader.load('./public/height.jpg');
+const texture = textureLoader.load('./public/texture.jpg');
+const alpha = textureLoader.load('./public/alpha.png');
 
 // Plane Mesh
 const planeGeometry = new THREE.PlaneGeometry(24, 24, 256, 256);
@@ -143,23 +143,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const memberData = {
     member1: {
       name: 'Abhinav Mehrotra',
-      image: 'static/images/abhinav.JPG'
+      image: '/public/abhinav.JPG'
     },
     member2: {
       name: 'Abe Homer',
-      image: 'static/images/abe.jpeg'
+      image: '/public/abe.jpeg'
     },
     member3: {
       name: 'Alex LaFontaine',
-      image: 'static/images/alex.jpg'
+      image: '/public/alex.jpg'
     },
     member4: {
       name: 'Cambria Klinger',
-      image: '/static/images/cam.jpg'
+      image: '/public/cam.jpg'
     },
     member5: {
       name: 'Shalimar Alvarado Cruz',
-      image: '/static/images/headshot.png'
+      image: '/public/headshot.png'
     }
   };
 
