@@ -185,6 +185,7 @@ h2 {
 
 .team-grid {
   display: grid;
+  flex-direction: row;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: start;
@@ -262,6 +263,19 @@ h2 {
   font-family: 'Geist-Mono', monospace;
   margin: 0;
   font-size: 1.25rem;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .team-grid {
+    flex-direction: column; 
+    grid-template-columns: auto;/* Stack items vertically */
+  }
+
+  .member-card {
+    position: relative; /* Remove sticky positioning */
+    top: 0; /* Reset top position */
+  }
 }
 
 
