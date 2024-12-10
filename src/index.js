@@ -155,11 +155,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     member4: {
       name: 'Cambria Klinger',
-      image: '/placeholder.svg?height=500&width=500'
+      image: '/static/images/cam.jpg'
     },
     member5: {
       name: 'Shalimar Alvarado Cruz',
-      image: '/placeholder.svg?height=500&width=500'
+      image: '/static/images/headshot.png'
     }
   };
 
