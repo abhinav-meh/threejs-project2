@@ -140,51 +140,51 @@ document.addEventListener('DOMContentLoaded', () => {
   const memberImage = document.querySelector('.member-image');
 
   // Team member data
-  const memberData = {
-    member1: {
-      name: 'Abhinav Mehrotra',
-      image: '/public/abhinav.JPG'
-    },
-    member2: {
-      name: 'Abe Homer',
-      image: '/public/abe.jpeg'
-    },
-    member3: {
-      name: 'Alex LaFontaine',
-      image: '/public/alex.jpg'
-    },
-    member4: {
-      name: 'Cambria Klinger',
-      image: '/public/cam.jpg'
-    },
-    member5: {
-      name: 'Shalimar Alvarado Cruz',
-      image: '/public/headshot.png'
-    }
-  };
+const memberData = {
+  member1: {
+    name: 'Abhinav Mehrotra',
+    image: '/public/abhinav.JPG'
+  },
+  member2: {
+    name: 'Abe Homer',
+    image: '/public/abe.jpeg'
+  },
+  member3: {
+    name: 'Alex LaFontaine',
+    image: '/public/alex.jpg'
+  },
+  member4: {
+    name: 'Cambria Klinger',
+    image: '/public/cam.jpg'
+  },
+  member5: {
+    name: 'Shalimar Alvarado Cruz',
+    image: '/public/headshot.png'
+  }
+};
 
-  // Set initial active member
-  teamMembers[0].classList.add('active');
-  const initialMember = teamMembers[0].getAttribute('data-member');
-  cardName.textContent = memberData[initialMember].name;
-  memberImage.src = memberData[initialMember].image;
-  memberImage.alt = memberData[initialMember].name;
+// Set initial active member
+teamMembers[0].classList.add('active');
+const initialMember = teamMembers[0].getAttribute('data-member');
+cardName.textContent = memberData[initialMember].name;
+memberImage.src = memberData[initialMember].image;
+memberImage.alt = memberData[initialMember].name;
 
-  teamMembers.forEach(member => {
-    member.addEventListener('click', () => {
-      // Remove active class from all members
-      teamMembers.forEach(m => m.classList.remove('active'));
-      
-      // Add active class to clicked member
-      member.classList.add('active');
+teamMembers.forEach(member => {
+  member.addEventListener('click', () => {
+    // Remove active class from all members
+    teamMembers.forEach(m => m.classList.remove('active'));
+    
+    // Add active class to clicked member
+    member.classList.add('active');
 
-      // Update member card with clicked member's data
-      const memberId = member.getAttribute('data-member');
-      cardName.textContent = memberData[memberId].name;
-      memberImage.src = memberData[memberId].image;
-      memberImage.alt = memberData[memberId].name;
-    });
+    // Update member card with clicked member's data
+    const memberId = member.getAttribute('data-member');
+    cardName.textContent = memberData[memberId].name;
+    memberImage.src = memberData[memberId].image;
+    memberImage.alt = memberData[memberId].name;
   });
+});
 });
 // Animation loop
 const clock = new THREE.Clock();
