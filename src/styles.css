@@ -29,8 +29,7 @@ section
   scroll-snap-align: start;
 }
 
-.hero-section
-{
+.hero-section {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,22 +38,34 @@ section
   z-index: 1000;
 }
 
-.hero-container
-{
+.hero-container {
   position: relative;
   z-index: 1000;
+  margin-top: 300px;
 }
 
-.img-container
-{
-  position: relative;
-  z-index: 1000;
+#hero-img {
+  width: 100%;
+  max-width: 800px; /* Set a maximum width */
+  height: auto; /* Maintain aspect ratio */
 }
 
-#hero-img
-{
-  width: 800px;
-  height: auto;
+@media (max-width: 1200px) {
+  #hero-img {
+    max-width: 600px; /* Adjust the maximum width for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  #hero-img {
+    max-width: 400px; /* Adjust the maximum width for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  #hero-img {
+    max-width: 300px; /* Adjust the maximum width for smaller screens */
+  }
 }
 
 .hero-icon{
@@ -300,6 +311,26 @@ h2 {
   width: 100%;
   height: auto;
   border-radius: 10px;
+}
+@media (max-width: 1200px) {
+  .carousel-item {
+    width: 250px; /* Adjust the width for smaller screens */
+    height: 150px; /* Adjust the height for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    width: 200px; /* Adjust the width for smaller screens */
+    height: 130px; /* Adjust the height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-item {
+    width: 150px; /* Adjust the width for smaller screens */
+    height: 100px; /* Adjust the height for smaller screens */
+  }
 }
 
 .logo img {
