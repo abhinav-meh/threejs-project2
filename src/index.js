@@ -159,7 +159,7 @@ const memberData = {
   },
   member5: {
     name: 'Shalimar Alvarado Cruz Hebbeler',
-    image: '/headshot.png'
+    image: '/shalimar.jpeg'
   }
 };
 
